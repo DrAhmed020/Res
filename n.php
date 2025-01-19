@@ -1,87 +1,63 @@
 <?php
+// استقبال المدخلات
 $year = $_POST['year'];
 $month = $_POST['month'];
-$file =$year.'/'.$month.'.csv';
+$name = $_POST['customerName'];
+$file = $year . '/' . $month . '.csv';
 
- $name = $_POST["customerName"]; 
+// التحقق من الرقم الوظيفي
+if (!preg_match('/^\d{9}$/', $name)) {
+    echo '<h1>الرقم الوظيفي خطأ، يرجى التأكد من إدخال 9 أرقام باللغة الإنجليزية.</h1>';
+    exit;
+}
 
- if ( preg_match( '/\d{9}/', $name ) === 0) {
-    echo '<h1/>الرقم الوظيفي خطأ يرجى التأكد'; 
-} 
+// التحقق من وجود الملف
+if (!file_exists($file)) {
+    echo '<h1>الملف المطلوب غير موجود! تأكد من اختيار السنة والشهر الصحيحين.</h1>';
+    exit;
+}
 
-else {
-	echo ' 
-	<head>
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3047591855739610"
-     crossorigin="anonymous"></script>
- 
- </head> 
-	';
+// فتح الملف والبحث عن الرقم الوظيفي
 $output = "";
-$row = 0;
 if (($handle = fopen($file, "r")) !== FALSE) {
-   
-    echo '<table border="1">';
-   
+    $found = false;
+    echo '<table border="1" style="width: 100%; border-collapse: collapse; text-align: center; font-family: Arial;">';
+    echo '<thead style="background-color: #f4f4f4; font-weight: bold;"><tr>';
+
+    // قراءة الملف صفاً صفاً
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-        $num = count($data);
-        if ($row == 0) {
-            echo '<thead><tr>';
-        }else{
-            echo '<tr>';
-        }
-       
-	   	   $txt = fgets($handle);
-
-	   while ( !feof( $handle) ) {
-	   
-	   // Search for keyword
-      if ( stripos( $txt, $name ) !== false ) {
-      $output = $txt;
-      }
-
-      $txt = fgets($handle);
-	   
-	   }
-	   
-	   	   
-        for ($c=0; $c < $num; $c++) {
-            //echo $data[$c] . "<br />\n";
-            if(empty($data[$c])) {
-               $value = "&nbsp;";
-			   $output ="&nbsp;";
-            }else{
-               $value = $data[$c];
-			   
-            }
-            if ($row == 0) {
-echo '<html dir="rtl">' ;
-                echo '<th>'.$value.'</th>';
-				
-							
-            }else{
-                echo '<td>'.$value.'</td>';
-								//echo '<th>'.$output.'</th>';
-
+        if (!$found) {
+            // التحقق من وجود الرقم الوظيفي داخل الصف
+            if (in_array($name, $data)) {
+                $output = $data;
+                $found = true;
             }
         }
-		$cells = explode(";",$output);
-        echo "<tr>";
-        foreach ($cells as $cell) {
-            echo "<td>" . htmlspecialchars($cell) . "</td>";
-        }
-        echo "</tr>\n";
-       
-        if ($row == 1) {
+
+        // إنشاء رأس الجدول
+        if (ftell($handle) == strlen($data[0])) {
+            foreach ($data as $header) {
+                echo '<th>' . htmlspecialchars($header) . '</th>';
+            }
             echo '</tr></thead><tbody>';
-        }else{
+        } elseif ($found) {
+            // عرض الصف الذي يحتوي على الرقم الوظيفي
+            echo '<tr>';
+            foreach ($output as $cell) {
+                echo '<td>' . htmlspecialchars($cell) . '</td>';
+            }
             echo '</tr>';
+            break;
         }
-        $row++;
     }
-   
+
     echo '</tbody></table>';
     fclose($handle);
-}
+
+    if (!$found) {
+        echo '<h1>الرقم الوظيفي غير موجود في الملف.</h1>';
+    }
+} else {
+    echo '<h1>حدث خطأ أثناء فتح الملف.</h1>';
 }
 ?>
