@@ -1,89 +1,108 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3047591855739610"
-     crossorigin="anonymous"></script>
- 
- </head> 
- <style>
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-/***** Email Subscription Widget For Blogger By Https://angle47.com *****/
-//@media(max-width:400px) {.sbox{width:109%!important;}}
-//@media(max-width:1024px) and (min-width:400px)  {.sbox{width:106.5%!important;}}
-.sbox {background:#a7c0c6;text-align:center;width:100%;}
-.sbox span {color:#fff;font-family:'Droid Arabic Kufi', serif;font-size:27px;}
-.sbox .small {font-size:18px;}
-input.boxinput::placeholder {color:#fff;}
-.sbox .hatespam {
-font-size:15px;}
-.sbox .boxinput::placeholder {color:#fff;}
-.sbox .boxinput {background:rgba(0,0,0,0.4);color:#fff;border:none;padding-top:13px;padding-bottom:13px;font-family:'Droid Arabic Kufi', serif;margin-bottom:10px;outline:none;transition:.3s;width:86%;text-align:center;border-radius:4px;}
-.sbox .boxsubmit {box-shadow:0px 0px 31px 0px rgba(0,0,0,0.2);width:86%;text-align:center;padding-top:13px;padding-bottom:13px;background:#fff;outline:none;border:none;color:#009abe;font-family:'Droid Arabic Kufi', serif;cursor:pointer;border-radius:4px;}
-.sbox .boxsubmit:active {background:rgba(0,0,0,0.6);color:#fff;}
-.sbox {border-radius:8px!important;padding:0!important;border:none!important;}
-.sbox .widget-content {margin:0!important;}
-#sidebar-wrap .widget {overflow-x:hidden;}
-.sbox {background:linear-gradient(135deg, #3da58b 0%, #135645 100%)!important;width:100%;}
-.sbox .boxsubmit {box-shadow:none!important;border-radius:2px!important;color:#764ba2!important;}
-.sbox .boxinput {border-radius:2px!important;}
-</style>
-<div class='sbox wow rubberBand'>
-<center>
-<br /><span class='icon'><img height='auto' src='https://blogger.googleusercontent.com/img/a/AVvXsEgz_H2W5U7Ge8ICwpMlJTcVZR1s8juVyMjN_DJ1wM6IqlKCxSElRxz_WVQ_r25tv09kMdlG-gwk_57qFd2c0EL5sn_h_pKb_Bby_k69_e5IlYTrXWE5Nv74xzwTFBfE7eOxiN6ZbmNJ9InYYfqbOqKdpNVfqJtBBpP4LRluZRq9EkOKyYdNNbdsk8uAlg=w400-h291' width='150px'/></span><br/>
-</center>
-<span>جيك راتبك</span><br /><br />
-<span class='small'>
-فضلا قم بادخال <br />
-الرقم الوظيفي <br />
-يجب ان تكون الارقام باللغة الانكليزية<br />
-
-
- 
-
-
-
-</span><br /><br />
-<center>
-<form action='n.php' method='post' onsubmit='window.open(&#39;https://feedburner.google.com/fb/a/mailverify?uri=angle47&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=550,height=520&#39;); return true' target='popupwindow'>
-
-  <label for="year">Choose a year:</label>
-  <select name="year" id="year">
-    <option value="2023">2023</option>
- 
-  </select>
-  <br><br>
-    <label for="month">Choose a Month:</label>
-
-<select name="month" id="month">
-    <option value="01">01</option>
-    <option value="02">02</option>
-	    <option value="03">03</option>
-
-    <option value="040">04</option>
-
-    <option value="05">05</option>
-
-    <option value="06">06</option>
-	    <option value="07">07</option>
-    <option value="08">08</option>
-    <option value="09">09</option>
-    <option value="10">10</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-	    <option value="12">12</option>
-
-
-
-
- 
-  </select>
-  <br><br>
-
-<input class='boxinput' name='customerName' placeholder='ادخل الرقم الوظيفي هنا' type='tel' min="6" max="6" required/>
-<input class='boxsubmit' type='submit' value='فحص'/><input name='uri' type='hidden' value='angle47'/>
-<input name='loc' type='hidden' value='en_US'/></form><br />
-<span class='hatespam'><font color="yellow">* </font>تم بواسطة الدكتور احمد الفهداوي  !</span><br /><br />
-
- 
-
-
-</center></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فحص الراتب</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3047591855739610" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Droid Arabic Kufi', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .sbox {
+            background: linear-gradient(135deg, #3da58b 0%, #135645 100%);
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .sbox span {
+            color: #fff;
+            font-size: 27px;
+        }
+        .sbox .small {
+            font-size: 18px;
+        }
+        input.boxinput::placeholder {
+            color: #fff;
+        }
+        .sbox .boxinput {
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            padding: 13px;
+            width: 86%;
+            text-align: center;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .sbox .boxsubmit {
+            box-shadow: none;
+            width: 86%;
+            padding: 13px;
+            background: #fff;
+            border: none;
+            color: #009abe;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .sbox .boxsubmit:hover {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+        .sbox .hatespam {
+            font-size: 15px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="sbox">
+        <center>
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgz_H2W5U7Ge8ICwpMlJTcVZR1s8juVyMjN_DJ1wM6IqlKCxSElRxz_WVQ_r25tv09kMdlG-gwk_57qFd2c0EL5sn_h_pKb_Bby_k69_e5IlYTrXWE5Nv74xzwTFBfE7eOxiN6ZbmNJ9InYYfqbOqKdpNVfqJtBBpP4LRluZRq9EkOKyYdNNbdsk8uAlg=w400-h291" alt="Logo" width="150">
+        </center>
+        <span>جيك راتبك</span>
+        <br><br>
+        <span class="small">فضلاً قم بإدخال الرقم الوظيفي<br>يجب أن تكون الأرقام باللغة الإنجليزية</span>
+        <br><br>
+        <form action="n.php" method="post">
+            <label for="year">اختر السنة:</label>
+            <select name="year" id="year">
+                <option value="2023">2023</option>
+            </select>
+            <br><br>
+            <label for="month">اختر الشهر:</label>
+            <select name="month" id="month">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <br><br>
+            <input class="boxinput" name="customerName" placeholder="ادخل الرقم الوظيفي هنا" type="text" pattern="\d{6}" required>
+            <br>
+            <input class="boxsubmit" type="submit" value="فحص">
+        </form>
+        <br>
+        <span class="hatespam">* تم بواسطة الدكتور أحمد الفهداوي</span>
+    </div>
+</body>
+</html>
